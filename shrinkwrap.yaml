@@ -1,5 +1,6 @@
 dependencies:
   express: 4.16.4
+  multi-hashmap: 1.0.0
   nedb: 1.8.0
   telegraf: 3.34.1
 packages:
@@ -287,6 +288,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+  /multi-hashmap/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-6SlehmVx5+vy2bQ4qb9tUjbJibA=
   /nedb/1.8.0:
     dependencies:
       async: 0.2.10
@@ -475,5 +480,6 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   express: ^4.16.4
+  multi-hashmap: ^1.0.0
   nedb: ^1.8.0
   telegraf: ^3.34.1

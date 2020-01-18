@@ -21,6 +21,12 @@ const listener = app.listen(process.env.PORT, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
+
+//var MultiHashMap = require('multi-hashmap').MultiHashMap;
+
+//var dict = new MultiHashMap('p', 'h', 'zh');
+
+
 const nedb = require("nedb");
 const telegraf = require("telegraf");
 const db = new nedb({
@@ -66,27 +72,31 @@ arr.forEach((t, i) => {
     //(err, ret,doc)
   );
 });
+db.find({}, (err, docs)=>{
+  console.log(docs)
+})
+
 arr = undefined;
+function lookup(w, callback) {
+   //callback(dict.findAll("p", w))
+}
 console.log(arr)
 console.time('test1')
 console.time('test2')
-db.find({p: /a/}, (err, docs) => {
+db.find({}, async (err, docs) => {
     console.log(docs);
+  docs.forEach((item) => {
+  //dict.insert(item.p, item.h[0], item.zh[0])
+})
+  
   console.timeEnd('test1')
+  lookup("e", results => {
+  console.log("search" + "e" + results);
+});
   });
-db.find({h: /a/}, (err, docs) => {
-    console.log(docs);
-  console.timeEnd('test2')
-  });
-db.find({zh: /人/}, (err, docs) => {
-    console.log(err);
-  });
-//console.timeEnd('test')
-function lookup(w, callback) {
-  db.find({ zh: w }, (err, docs) => {
-    callback(docs);
-  });
-}
+
+
+
 
 const Telegraf = require("telegraf");
 const bot = new Telegraf(process.env.NANBOT);
@@ -110,10 +120,4 @@ bot.use(async (ctx, next) => {
 });
 
 bot.launch();
-lookup("人", docs => {
-  console.log(docs);
-});
 
-db.find({ p: { $regex: /aa/ } }, function (err, docs) {
-  
-});

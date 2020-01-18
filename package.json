@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "telegraf": "^3.34.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "multi-hashmap": "^1.0.0"
   },
   "engines": {
     "node": "8.x"
